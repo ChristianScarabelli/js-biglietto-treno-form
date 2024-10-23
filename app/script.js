@@ -1,4 +1,3 @@
-console.log('form prezzo del biglietto del treno')
 
 // Creo una funzione che calcoli il prezzo del biglietto
 
@@ -31,27 +30,38 @@ function calculateTicketPrice (numkm, age) {
     return formattedPrice;
 }
 
-// Esempio di chiamata alla funzione
-// const ticketPrice = calculateTicketPrice(50, 70)
-// console.log(ticketPrice)
 
 
 // Richiamo il bottone per generare il prezzo
 const generatePriceButton = document.getElementById('input_price')
+// Richiamo il bottone annullare il calcolo del prezzo
+const abortPriceButton = document.getElementById('input_abort')
+// Richiamo il form
+const form = document.querySelector('form')
+
 
 // Definisco gli eventi al click del bottone che genera il prezzo
-generatePriceButton.addEventListener('click', function() {
-    console.log('ho premuto il bottone')
+generatePriceButton.addEventListener('click', function (event) {
+    event.preventDefault();
+    // console.log('ho premuto il bottone')
+
+    // Raccolgo i dati dal form
+    const name = document.getElementById('input-name').value
+    const numkm = parseInt(document.getElementById('input-km').value)
+    const age = document.getElementById('input-age').value
+
+    // Esempio di utilizzo della funzione calculateTicketPrice
+    const ticketPrice = calculateTicketPrice(numkm, age)
+    console.log(`${name} - Prezzo: ${ticketPrice}`)
 })
 
 
 
-
-
-// Richiamo il bottone annullare il calcolo del prezzo
-const abortPriceButton = document.getElementById('input_abort')
-
 // Definisco gli eventi al click del bottone che annulla il form
-abortPriceButton.addEventListener('click', function() {
-    console.log('ho premuto il bottone')
+abortPriceButton.addEventListener('click', function (event) {
+    event.preventDefault()
+    // console.log('ho premuto il bottone')
+
+    // Resetto il form e il prezzo visualizzato
+    form.reset()
 })
