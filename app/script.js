@@ -30,7 +30,6 @@ function calculateTicketPrice (numkm, age) {
 }
 
 
-
 // Richiamo il bottone per generare il prezzo
 const generatePriceButton = document.getElementById('input_price')
 // Richiamo il bottone annullare il calcolo del prezzo
@@ -47,7 +46,7 @@ generatePriceButton.addEventListener('click', function (event) {
     // Controllo se la card riepilogativa esiste già
     if (document.querySelector('.data-card')) {
         console.log('La card riepilogativa è già stata generata.');
-        return // Esco dalla funzione se la card esiste già
+        return // Interrompo tutto se la card esiste già
     }
 
     // Raccolgo i dati dal form
